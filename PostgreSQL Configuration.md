@@ -1594,6 +1594,7 @@ Estimated Usage = 2GB + (32MB × 100 × 0.5) + 512MB + 64MB
     - maintenance_work_mem: ควรตั้งค่าให้สูงพอสำหรับงานบำรุงรักษา แนะนำประมาณ 1GB (หรือ 1/16 ของ RAM ทั้งหมด). ค่านี้ไม่ได้ใช้พร้อมกันหลายงานเหมือน work_mem จึงสามารถตั้งค่าได้สูงกว่า
 
 4. ไฟล์ postgresql.conf และ postgresql.auto.conf  มีความสัมพันธ์กันอย่างไร
+  ตอบ :
   - postgresql.conf เป็นไฟล์ หลัก ของ PostgreSQL ที่เก็บค่าตั้งค่าทั้งหมดของเซิร์ฟเวอร์
   - postgresql.auto.conf เป็นไฟล์ที่ PostgreSQL สร้างขึ้น โดยอัตโนมัติเก็บค่าที่ถูกตั้งโดยคำสั่ง SQL
   - PostgreSQL โหลดค่า postgresql.conf ก่อนแล้วโหลดค่าใน postgresql.auto.conf ทับค่าที่เหมือนกัน postgresql.auto.conf > postgresql.conf ถ้ามีค่าซ้ำกัน
@@ -1604,6 +1605,7 @@ Estimated Usage = 2GB + (32MB × 100 × 0.5) + 512MB + 64MB
   ตอบ : Buffer Hit Ratio คืออัตราส่วนที่บอกว่าข้อมูลที่ถูกเรียกใช้ สามารถหาได้จากแคชในหน่วยความจำ (shared_buffers) โดยตรง
  
 6. แสดงผลการคำนวณ การกำหนดค่าหน่วยความจำต่าง ๆ โดยอ้างอิงเครื่องของตนเอง
+  ตอบ :
 - shared_buffers  = 8192 MB * 25% = 2048 MB   = 2GB
 - work_mem = 6144 ÷ 100 ÷ 2 ≈ 30 MB
 - maintenance_work_mem = 8GB × 10% ≈ 800 MB
