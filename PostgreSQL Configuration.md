@@ -250,11 +250,19 @@ FROM pg_settings
 WHERE name = 'shared_buffers';
 
 ### ผลการทดลอง
-```
+
 1.รูปผลการรันคำสั่ง
+
+<img width="579" height="130" alt="image" src="https://github.com/user-attachments/assets/b6a507a3-3855-4003-81e4-909c64910790" />
+
 2. ค่า  shared_buffers มีการกำหนดค่าไว้เท่าไหร่ (ใช้ setting X unit)
+   มีการกำหนดค่าไว้ 131072
+
 3. ค่า  pending_restart ในผลการทดลองมีค่าเป็นอย่างไร และมีความหมายอย่างไร
-```
+   pending_restart คือ ตัวบ่งบอกว่า parameter ของ PostgreSQL ต้อง restart server ถึงจะมีผลหรือไม่
+      on → ต้อง restart server เพื่อให้ค่ามีผล
+      off → ไม่ต้อง restart server ค่าใหม่มีผลทันที
+
 -- คำนวณและตั้งค่าใหม่
 -- สำหรับระบบ 2GB: 512MB (25%)
 ALTER SYSTEM SET shared_buffers = '512MB';
@@ -270,11 +278,14 @@ WHERE name = 'shared_buffers';
 docker exec -it -u postgres postgres-config pg_ctl restart -D /var/lib/postgresql/data -m fast
 
 ### ผลการทดลอง
-```
-รูปผลการเปลี่ยนแปลงค่า pending_restart
-รูปหลังจาก restart postgres
 
-```
+1.รูปผลการเปลี่ยนแปลงค่า pending_restart
+<img width="399" height="108" alt="image" src="https://github.com/user-attachments/assets/674f33a5-deb1-4c96-b159-610ce592e696" />
+
+2.รูปหลังจาก restart postgres
+<img width="599" height="145" alt="image" src="https://github.com/user-attachments/assets/40b02e87-f6b9-4f07-876c-5771c83249ac" />
+
+
 
 #### 2.2 ปรับแต่ง Work Memory (ไม่ต้อง restart)
 ```sql
@@ -295,9 +306,9 @@ FROM pg_settings
 WHERE name = 'work_mem';
 ```
 ### ผลการทดลอง
-```
-รูปผลการเปลี่ยนแปลงค่า work_mem
-```
+
+<img width="723" height="240" alt="image" src="https://github.com/user-attachments/assets/c1e6c797-3cf2-4111-bfa5-50c63ef11a0f" />
+
 
 #### 3.3 ปรับแต่ง Maintenance Work Memory
 ```sql
