@@ -217,11 +217,15 @@ SELECT version();
 SHOW config_file;
 SHOW hba_file;
 SHOW data_directory;
-
-### บันทึกผลการทดลอง
 ```
+### บันทึกผลการทดลอง
+<img width="837" height="312" alt="image" src="https://github.com/user-attachments/assets/91623627-4c42-4232-a69f-66f1919627ed" />
+
 1. ตำแหน่งที่อยู่ของไฟล์ configuration อยู่ที่ตำแหน่งใด
+     /var/lib/postgresql/data/postgresql.conf
 2. ตำแหน่งที่อยู่ของไฟล์ data อยู่ที่ตำแหน่งใด
+    /var/lib/postgresql/data
+
 ```
 -- ตรวจสอบการตั้งค่าปัจจุบัน
 SELECT name, setting, unit, category, short_desc 
@@ -232,9 +236,9 @@ WHERE name IN (
 );
 ```
 ### บันทึกผลการทดลอง
-```
-บันทึกรูปผลของ configuration ทั้ง 6 ค่า 
-```
+
+<img width="851" height="340" alt="image" src="https://github.com/user-attachments/assets/5181bb2e-4450-423f-80f8-312655b189b1" />
+
 
 ### Step 2: การปรับแต่งพารามิเตอร์แบบค่อยเป็นค่อยไป
 
